@@ -44,8 +44,10 @@ namespace Calculator
         private void AddDigitOrDecimalPoint(string value)
         {
             int index = @operator == null ? 0 : 1;
+
             if(value == "." && numbers[index].Contains("."))
                 return;
+
             numbers[index] += value;
 
             UpdateCalculatorText();
@@ -58,6 +60,10 @@ namespace Calculator
                 Calculate(value);
                 return;
             }
+
+            @operator = value;
+            UpdateCalculatorText();
+
         }
 
         private void Calculate(string newOperator = null)

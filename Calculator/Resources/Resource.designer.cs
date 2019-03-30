@@ -2438,6 +2438,9 @@ namespace Calculator
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
 			
+			// aapt resource value: 0x7f08008b
+			public const int calculator_text_view = 2131230859;
+			
 			// aapt resource value: 0x7f08009f
 			public const int cancel_action = 2131230879;
 			
@@ -2528,9 +2531,6 @@ namespace Calculator
 			// aapt resource value: 0x7f080072
 			public const int expanded_menu = 2131230834;
 			
-			// aapt resource value: 0x7f08008c
-			public const int fab = 2131230860;
-			
 			// aapt resource value: 0x7f080050
 			public const int fill = 2131230800;
 			
@@ -2548,6 +2548,9 @@ namespace Calculator
 			
 			// aapt resource value: 0x7f08000a
 			public const int ghost_view = 2131230730;
+			
+			// aapt resource value: 0x7f08008c
+			public const int gridLayout1 = 2131230860;
 			
 			// aapt resource value: 0x7f080005
 			public const int home = 2131230725;
@@ -2812,9 +2815,6 @@ namespace Calculator
 			
 			// aapt resource value: 0x7f08006f
 			public const int title_template = 2131230831;
-			
-			// aapt resource value: 0x7f08008b
-			public const int toolbar = 2131230859;
 			
 			// aapt resource value: 0x7f08003e
 			public const int top = 2131230782;

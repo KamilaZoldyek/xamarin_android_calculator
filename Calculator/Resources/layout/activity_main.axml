@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xlms:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+	
 	android:orientation="vertical"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"	>
+
+   <!--
+	
+	<android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+		/>
+
+    </android.support.design.widget.AppBarLayout> 
+
+	-->
+	
+	
+	
+	
 	<HorizontalScrollView
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
@@ -15,7 +40,8 @@
 			android:layout_height="match_parent"
 			android:padding="10dp"
 			android:textSize="50sp"
-			android:text="123"/>		
+			android:text="0"
+		/>		
 		
 	</HorizontalScrollView>
 
@@ -24,9 +50,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:id="@+id/gridLayout1"
-			app:orientation="vertical"
-			app:rowCount="5"
-			app:columnCount="4">
+			android:orientation="vertical"
+			android:rowCount="5"
+			android:columnCount="5">
 
 
 
