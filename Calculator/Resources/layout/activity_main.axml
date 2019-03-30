@@ -15,8 +15,7 @@
 			android:layout_height="match_parent"
 			android:padding="10dp"
 			android:textSize="50sp"
-			android:text="123"
-		/>		
+			android:text="123"/>		
 		
 	</HorizontalScrollView>
 

@@ -51,19 +51,50 @@ namespace Calculator
             UpdateCalculatorText();
         }
 
-        private void AddOperator(string text)
+        private void AddOperator(string value)
         {
-
+            if(numbers[1] != null)
+            {
+                Calculate(value);
+                return;
+            }
         }
 
-        private void Calculate()
+        private void Calculate(string newOperator = null)
         {
+            double? result = null;
+            double? first = numbers[0] == null ? null : (double?)double.Parse(numbers[0]);
+            double? second = numbers[1] == null ? null : (double?)double.Parse(numbers[1]);
+            switch (@operator)
+            {
+                case "/" :
+                    result = first / second;
+                    break;
+                case "*":
+                    result = first * second;
+                    break;
+                case "+":
+                    result = first + second;
+                    break;
+                case "-":
+                    result = first - second;
+                    break;
+            }
+            if(result != null)
+            {
+                numbers[0] = result.ToString();
+                @operator = newOperator;
+                numbers[1] = null;
+                UpdateCalculatorText(); 
+            }
 
         }
 
         private void Erase()
         {
-
+            numbers[0] = numbers[1] = null;
+            @operator = null;
+            UpdateCalculatorText(); 
         }
 
         private void UpdateCalculatorText() =>  calculatorText.Text = $"{numbers[0]} {@operator} {numbers[1]}";
