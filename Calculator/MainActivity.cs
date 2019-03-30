@@ -12,6 +12,10 @@ namespace Calculator
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        private TextView calculatorText;
+
+        private string[] numbers = new string[2];
+        private string @operator;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -19,36 +23,55 @@ namespace Calculator
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-           // Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            //SetSupportActionBar(toolbar);
+            calculatorText = FindViewById<TextView>(Resource.Id.calculator_text_view);
 
-           // FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            //fab.Click += FabOnClick;
+
         }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
+        [Java.Interop.Export("ButtonClick")]
+        public void ButtonClick(View v)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
+            Button button = (Button)v;
+            if ("0123456789.".Contains(button.Text))
+                AddDigitOrDecimalPoint(button.Text);
+            else if ("/*+-".Contains(button.Text))
+                AddOperator(button.Text);
+            else if ("=" == button.Text)
+                Calculate();
+            else
+                Erase();
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void AddDigitOrDecimalPoint(string value)
         {
-            int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
-            {
-                return true;
-            }
+            int index = @operator == null ? 0 : 1;
+            if(value == "." && numbers[index].Contains("."))
+                return;
+            numbers[index] += value;
 
-            return base.OnOptionsItemSelected(item);
+            UpdateCalculatorText();
         }
 
-        private void FabOnClick(object sender, EventArgs eventArgs)
+        private void AddOperator(string text)
         {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
+
         }
-	}
+
+        private void Calculate()
+        {
+
+        }
+
+        private void Erase()
+        {
+
+        }
+
+        private void UpdateCalculatorText() =>  calculatorText.Text = $"{numbers[0]} {@operator} {numbers[1]}";
+
+    }
+
+
+
 }
+
 
